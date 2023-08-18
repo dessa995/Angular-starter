@@ -1,0 +1,71 @@
+// Fonts
+$font-default-serif: Georgia, serif;
+$font-default-sans-serif: Arial, Helvetica, sans-serif;
+
+$font-main: $font-default-sans-serif;
+
+$site-fonts: (
+  "font-main": $font-main,
+) !default;
+
+/*---------------------------------------------
+##Colors
+----------------------------------------------*/
+
+$black: #000;
+$black-light: #111;
+$blue-light: #7fbbfa;
+$blue-neon: #00fff2;
+$blue-light-darker: #6b9cc4;
+$white: #fff;
+$gold-light: #ffbc59;
+$gold-dark: #eaaa01;
+
+/*--------------------------------------------------------------
+## Bootstrap Variables
+--------------------------------------------------------------*/
+$enable-grid-classes: true !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px,
+) !default;
+
+/*
+	Breakpoints for max-width.
+
+	These variables are mapped with $grid-breakpoints SCSS map variable which is used for bootstrap.
+	The reason for this setup is that it is needed to have variables that reflect bootstrap's breakpoints.
+	Bootstrap is using min-with and this starter max-with approach, so bootstrap's breakpoint at 992px (min-width)
+	is reflected as 991px (max-width), thus the mapped variables bellow.
+ */
+
+$sm: map-get($grid-breakpoints, sm) - 1;
+$md: map-get($grid-breakpoints, md) - 1;
+$lg: map-get($grid-breakpoints, lg) - 1;
+$xl: map-get($grid-breakpoints, xl) - 1;
+$lap-small: 1250px;
+$lap-large: 1400px;
+$desk-small: 1600px;
+
+// Grid columns
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+/*--------------------------------------
+##unsorted
+----------------------------------------*/
+
+$dur: 350ms;
+$ease: ease-in-out;

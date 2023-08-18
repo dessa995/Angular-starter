@@ -1,0 +1,96 @@
+@keyframes flash {
+  0% {
+    transform: scale(0);
+  }
+
+  60% {
+    transform: scale(4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.banner__popup-close {
+  position: absolute;
+  top: 5%;
+  right: 2.5%;
+  color: $white;
+  font-size: 18px;
+  transition: $dur $ease;
+  transition-delay: 1.8s; // always 0.3s more than animation duration and same as timeout in function
+
+  @include mq($md) {
+    transition-delay: 0s;
+  }
+}
+.banner__popup-content {
+  color: $white;
+  font-size: 20px;
+  transition: $dur $ease;
+  transition-delay: 1.8s; // always 0.3s more than animation duration and same as timeout in function
+
+  @include mq($md) {
+    transition-delay: 0s;
+  }
+}
+
+.banner__flash-popup {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 40vw;
+  min-height: 30vh;
+  height: fit-content;
+  transform: scale(0);
+  top: 25%;
+  left: 20%;
+  transition: $dur $ease;
+  background-color: $white;
+
+  @include mq($xl) {
+    top: 24%;
+    left: 13.8%;
+  }
+
+  @include mq($md) {
+    position: fixed;
+    top: 40%;
+    left: 20%;
+    width: 60vw;
+  }
+}
+
+.banner__flash-popup.active {
+  transform: scale(1);
+  padding: 35px;
+  animation: flash 1.5s;
+
+  &.black {
+    background-color: $black-light;
+    border: 1px solid $gold-dark;
+
+    > .banner__popup-close {
+      transition-delay: 0s;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  > .banner__popup-close {
+    color: $gold-light;
+  }
+
+  > .banner__popup-content {
+    color: $gold-light;
+  }
+
+  @include mq($md) {
+    animation: none;
+  }
+}

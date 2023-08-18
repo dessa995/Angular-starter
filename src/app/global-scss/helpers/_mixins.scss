@@ -1,0 +1,77 @@
+/*
+Media Query
+Example:
+
+@include mq($sm) 			 		Will render: @media screen and (max-width: 575px)
+@include mq(991px) 			 	 	Will render: @media screen and (max-width: 991px)
+@include mq($sm + 1, min) 	 		Will render: @media screen and (min-width: 576px)
+@include mq(992px, min) 			Will render: @media screen and (min-width: 992px)
+@include mq(400, min, height) 	 	Will render: @media screen and (min-height: 400px)
+@include mq(992px) {				Will render: @media screen and (max-width: 992px) and (min-width: 767px)
+	@include mq(767px, min) {
+
+	}
+}
+ */
+
+@mixin mq($value, $constraint: max, $feature: width) {
+  @media screen and (#{$constraint}-#{$feature}: $value) {
+    @content;
+  }
+}
+
+/*
+Insert SVG Icon DataUri as Background
+The mixing takes three arguments:
+
+First argument is a name of a file.
+Second argument is a color of an icon.
+Third argument is whether psuedo element should be `::before` or `::after`. The default value is `::before`.
+
+Example:
+
+@include svg-icon-data(ico-happy, $red, after);
+
+
+Will render:
+&::after {
+	...
+	background: url("data:image/svg+xml...") no-repeat center
+	...
+}
+ */
+
+@mixin svg-icon-data($icon, $color, $insert: before) {
+  &::#{$insert} {
+    content: "";
+    display: inline-block;
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+    background: svg-load(svgPath($icon), fill=$color) no-repeat center;
+    background-size: contain;
+  }
+}
+
+// Vertical / Horizontal center
+@mixin center($direction: xy, $position: absolute) {
+  position: $position;
+  @if ($direction == "y") {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if ($direction == "x") {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Text Overflow
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,64 @@
+.rotate-card {
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: 0.5s;
+}
+
+.rotate-card .lines {
+  position: absolute;
+  inset: 0;
+  background-color: $black;
+  overflow: hidden;
+}
+
+.rotate-card .lines::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 35%;
+  background: linear-gradient(
+    transparent,
+    $gold-light,
+    $gold-light,
+    $gold-light,
+    transparent
+  );
+  transform-origin: center;
+  animation: animate 4s linear infinite;
+  animation-play-state: paused;
+}
+
+.rotate-card:hover .lines::before {
+  animation-play-state: running;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+.rotate-card .lines::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: $black;
+}
+
+// .rotate-card .content {
+//   position: absolute;
+//   top: -60px;
+//   left: 50%;
+//   width: 150px;
+//   height: 150px;
+//   transform: translateX(-50%);
+// }

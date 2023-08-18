@@ -1,0 +1,142 @@
+@import "../../app.component.scss";
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../../assets/images/banner-background-img.jpg");
+
+  @include mq($md) {
+    background-position-y: -200px;
+    background-repeat: no-repeat;
+    padding-top: 250px;
+  }
+}
+
+.banner__container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 80vh;
+
+  @include mq($md) {
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: $black-light;
+    border: 2px solid $gold-dark;
+    min-height: fit-content;
+    padding: 35px;
+    margin-top: 60px;
+    margin-bottom: 35px;
+  }
+}
+
+.banner__heading-box {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  display: flex;
+  justify-content: center;
+  transform: rotate(270deg);
+
+  @include mq($xl) {
+    left: 0;
+  }
+
+  @include mq($md) {
+    position: static;
+    transform: rotate(0deg);
+  }
+}
+
+.banner__heading {
+  color: $white;
+  font-size: 50px;
+
+  @include mq($xl) {
+    font-size: 45px;
+  }
+
+  // @include mq($md) {
+  //   color: $gold-light;
+  // }
+}
+
+.banner__content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  align-self: center;
+
+  @include mq($md) {
+    width: 100%;
+  }
+}
+
+.banner__text {
+  color: $white;
+  font-size: 24px;
+  margin: 55px 0;
+
+  @include mq($xl) {
+    font-size: 21px;
+    margin: 30px 0;
+  }
+
+  // @include mq($md) {
+  //   color: $gold-light;
+  //   font-weight: bold;
+  //   text-align: center;
+  // }
+}
+
+.banner__button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner__button-text {
+  color: $white;
+  font-size: 20px;
+  margin-top: 15px;
+
+  @include mq($xl) {
+    font-size: 18px;
+  }
+}
+
+.banner__btn {
+  position: relative;
+  background-color: $black;
+  color: $white;
+  width: 75px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  box-shadow: 2px 2px 39px -19px rgba($white, 0.75);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    transition: $dur $ease;
+    box-shadow: inset 5px 3px 7px rgba($white, 0.75);
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $gold-light;
+
+    &::after {
+      box-shadow: inset 5px -1px 6px -1px rgba($white, 0.75);
+    }
+  }
+}
+
+@import "./_flash-popup.scss";

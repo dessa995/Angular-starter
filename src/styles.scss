@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+/*---------------------------------------------------------
+##Basic dependencies
+----------------------------------------------------------*/
+@import "../node_modules/bootstrap/scss/bootstrap-grid.scss";
+
+/*---------------------------------------------------------
+##Helpers
+----------------------------------------------------------*/
+@import "./app/global-scss/helpers/variables";
+@import "./app/global-scss/helpers/mixins";
+@import "./app/global-scss/helpers/helpers";
+
+/*-------------------------------------------------------
+##Elements
+-------------------------------------------------------*/
+
+@import "./app/global-scss/elements/drop-menu";
+@import "./app/global-scss/elements/hamburger";
+@import "./app/global-scss/elements/rotating-border";
+@import "./app/global-scss/elements/button";
+
+/*-------------------------------------------------------
+##Blocks
+-------------------------------------------------------*/
+@import "./app/blocks/blocks";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  // overflow: hidden;
+  // background-color: $blue-light;
+}
+
+i {
+  margin-left: 3px;
+}
+
+.site-main {
+  position: relative;
+  overflow: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.empty-box {
+  display: block;
+  width: 500px;
+  height: 300px;
+  margin: auto;
+
+  @include center;
+}
+
+// .banner {
+//   background-image: url("./assets/images/banner-background-img.jpg");
+// }
