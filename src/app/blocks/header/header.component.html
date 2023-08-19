@@ -1,5 +1,5 @@
 <header>
-  <div class="site-header js-header">
+  <div class="site-header" [ngClass]="isActive ? 'is-active' : ''">
     <!-- pre-header goes here -->
     <div class="container">
       <div class="header-container">
@@ -12,7 +12,10 @@
           </a>
         </div>
         <nav class="header__site-nav">
-          <div class="header__nav-wrapper--outer js-nav-outer">
+          <div
+            class="header__nav-wrapper--outer"
+            [ngClass]="isActive ? 'is-active' : ''"
+          >
             <div class="header__nav-wrapper--inner js-nav-inner">
               <ul class="header__nav-list">
                 <li class="header__nav-item">
@@ -80,7 +83,9 @@
         </nav>
         <a
           href="javascript:;"
-          class="site-header__hamburger hamburger js-menu-btn"
+          class="site-header__hamburger hamburger"
+          [ngClass]="isActive ? 'is-active' : ''"
+          (click)="hamburgerClicked()"
           ><span></span
         ></a>
         <!-- header__contaienr -->

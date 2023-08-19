@@ -13,15 +13,21 @@
         </p>
         <div class="banner__button-wrapper">
           <span class="banner__button-text">Find out more</span>
-          <button class="banner__btn js-banner-btn">
+          <button class="banner__btn" (click)="flashPopup()" #bannerButtonRef>
             <fa-icon [icon]="['fas', 'bolt']"></fa-icon>
-            <!-- <i class="fa-solid fa-bolt"></i> -->
           </button>
         </div>
       </div>
-      <div class="banner__flash-popup js-flash-popup">
-        <a class="banner__popup-close js-popup-close-btn" href="javascript:;">
-          <i class="fa fa-x"></i>
+      <div
+        class="banner__flash-popup"
+        [ngClass]="{ active: status, black: isDark }"
+      >
+        <a
+          class="banner__popup-close"
+          href="javascript:;"
+          (click)="closePopup()"
+        >
+          <fa-icon [icon]="['fas', 'x']"></fa-icon>
         </a>
         <p class="banner__popup-content">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
