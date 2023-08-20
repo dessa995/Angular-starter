@@ -16,7 +16,8 @@
             class="header__nav-wrapper--outer"
             [ngClass]="isActive ? 'is-active' : ''"
           >
-            <div class="header__nav-wrapper--inner js-nav-inner">
+            <div class="header__nav-wrapper--inner">
+              <div class="header__nav-wrapper--background" [@fadeInOut] *ngIf=isActive></div>
               <ul class="header__nav-list">
                 <li class="header__nav-item">
                   <a
@@ -29,10 +30,12 @@
                 <li class="header__nav-item menu-item">
                   <a
                     href="javascript:;"
-                    class="header__nav-link-item menu-link js-accordion-item"
+                    class="header__nav-link-item menu-link"
+                    [ngClass]="accordionActive ? 'active' : ''"
+                    (click)="accordionClicked()"
                   >
                     Menu Item 2
-                    <fa-icon [icon]="['fas', 'caret-down']"></fa-icon>
+                    <fa-icon [icon]="accordionIcon"></fa-icon>
                   </a>
                   <ul class="sub-menu js-sub-menu">
                     <li class="menu-item">
@@ -43,10 +46,12 @@
                     <li class="menu-item menu-item--last">
                       <a
                         href="javascript:;"
-                        class="header__nav-link-item menu-link js-accordion-item"
+                        class="header__nav-link-item menu-link"
+                        [ngClass]="accordionChildActive ? 'active' : ''"
+                        (click)="accordionChildClicked()"
                       >
                         Sub-menu item 2
-                        <fa-icon [icon]="['fas', 'caret-down']"></fa-icon>
+                        <fa-icon [icon]="accordionChildIcon"></fa-icon> 
                       </a>
                       <ul class="sub-menu js-sub-menu">
                         <li class="menu-item">
