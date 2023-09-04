@@ -1,9 +1,22 @@
 @import "../../app.component.scss";
 
 .banner {
+  position: relative;
   background-size: cover;
   background-position: center;
   background-image: url("../../../assets/images/banner-background-img.jpg");
+  margin-bottom: 50px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom, $transparent, $grey-top 90%);
+    width: 100%;
+    height: 4em;
+  }
 
   @include mq($md) {
     background-position-y: -200px;

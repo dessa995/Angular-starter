@@ -10,9 +10,10 @@ import {
 } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { BannerComponent } from './blocks/banner/banner.component';
+import { TabsSectionComponent } from './blocks/tabs-section/tabs-section.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, BannerComponent],
+  declarations: [AppComponent, HeaderComponent, BannerComponent, TabsSectionComponent],
   imports: [BrowserModule, FontAwesomeModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,66 @@
+@import "../../app.component.scss";
+
+.tabs-section__content {
+  display: flex;
+  height: 50vh;
+}
+
+.tabs-section__content--upper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.tabs-section__img-container {
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  &--upper {
+    background-image: url('../../../assets/images/section-background-img.jpg');
+  }
+
+  &--lower {
+    background-image: url('../../../assets/images/pexels-tirachard-kumtanom-733853.jpg');
+  }
+
+}
+
+.tabs-section__text-content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
+  gap: 20px;
+
+  &--upper {
+    align-items: flex-end;
+    padding-right: 70px;
+  }
+
+  &--lower {
+    align-items: flex-start;
+    padding-left: 70px;
+  }
+}
+
+.tabs-section__text-heading-box {
+  display: flex;
+  width: 75%;
+  justify-content: center;
+}
+
+.tabs-section__heading {
+  color: $white;
+  font-size: 32px;
+}
+
+.tabs-section__text-paragraph-box {
+  width: 75%;
+}
+
+.tabs-section__paragraph {
+  color: $white;
+  font-size: 22px;
+  text-align: center;
+}
+

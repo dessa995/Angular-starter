@@ -17,8 +17,8 @@
             [ngClass]="isActive ? 'is-active' : ''"
           >
             <div class="header__nav-wrapper--inner">
-              <div class="header__nav-wrapper--background" [@fadeInOut] *ngIf=isActive></div>
-              <ul class="header__nav-list">
+              <div class="header__nav-wrapper--background"></div>
+              <ul class="header__nav-list" #parentList>
                 <li class="header__nav-item">
                   <a
                     href="javascript:;"
@@ -33,6 +33,7 @@
                     class="header__nav-link-item menu-link"
                     [ngClass]="accordionActive ? 'active' : ''"
                     (click)="accordionClicked()"
+                    #accordionParent
                   >
                     Menu Item 2
                     <fa-icon [icon]="accordionIcon"></fa-icon>
@@ -49,6 +50,7 @@
                         class="header__nav-link-item menu-link"
                         [ngClass]="accordionChildActive ? 'active' : ''"
                         (click)="accordionChildClicked()"
+                        #accordionChild
                       >
                         Sub-menu item 2
                         <fa-icon [icon]="accordionChildIcon"></fa-icon> 
