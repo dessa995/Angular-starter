@@ -1,4 +1,4 @@
-import { Component  } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild  } from '@angular/core';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,20 +7,35 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent  {
+export class HeaderComponent implements OnInit  {
   isActive: boolean = false;
+  onTop: boolean = true;
   accordionActive: boolean = false;
   accordionChildActive: boolean = false;
   faCaretDown = faCaretDown;
   faClose = faTimes;
   accordionIcon: any = this.faCaretDown;
   accordionChildIcon: any = this.faCaretDown;
+  lastY : any = 0;
 
   // @ViewChild('accordionParent', { static: true }) accordionParent!: ElementRef;
   // @ViewChildren('parentList > li') listItems!: QueryList<ElementRef>;
   // @ViewChild('accordionChild', { static: true}) accordionChild!: ElementRef;
+  @ViewChild('siteHeader', {static: true}) siteHeader!: ElementRef;
 
   constructor() {}
+
+  ngOnInit(): void {
+    // this.siteHeader.nativeElement.onScroll = () => {
+    //   let top = this.siteHeader.nativeElement.scrollTop;
+
+    //   if (top > 0) {
+    //     this.onTop = false;
+    //   } else {
+    //     this.onTop = true;
+    //   }
+    // }
+  }
 
   // ngAfterViewInit() {
   //   console.log(this.listItems);
@@ -43,6 +58,16 @@ export class HeaderComponent  {
     this.accordionChildActive = !this.accordionChildActive;
     if (window.innerWidth < 1200) {
       this.accordionChildIcon = this.accordionChildActive ? this.faClose : this.faCaretDown;
+    }
+  }
+
+  @HostListener('window:scroll', ['$event']) onScroll(event: any) {
+    console.log('Scrolled', window.pageYOffset);
+    
+    if (window.pageYOffset > this.lastY) {
+      this.onTop = false;
+    } else {
+      this.onTop = true;
     }
   }
 

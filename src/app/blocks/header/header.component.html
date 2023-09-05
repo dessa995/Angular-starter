@@ -1,5 +1,5 @@
 <header>
-  <div class="site-header" [ngClass]="isActive ? 'is-active' : ''">
+  <div class="site-header" [ngClass]="[isActive ? 'is-active' : '', onTop ? '' : 'dark']" scrollEvents="true" #siteHeader>
     <!-- pre-header goes here -->
     <div class="container">
       <div class="header-container">

@@ -9,6 +9,35 @@
   width: 100%;
   background-color: transparent;
   z-index: 999;
+  transition: $dur $ease;
+  will-change: transform;
+
+  &.dark {
+    background-color: $black-light;
+    max-height: 60px;
+
+    .header__logo {
+      max-width: 50px;
+      transition: $dur $ease;
+    }
+
+    .header__nav-wrapper--outer {
+      max-height: 60px;
+      transition: $dur $ease;
+    }
+
+    .header__nav-wrapper--inner {
+      transition: $dur $ease;
+    }
+
+    .header__nav-list {
+      transition: $dur $ease;
+    }
+
+    .header__nav-item {
+      transition: $dur $ease;
+    }
+  }
 }
 
 .header-container {
